@@ -16,7 +16,7 @@ for HOOK in "${HOOKS[@]}"; do
         # Проверяем, что симлинк указывает на кастомную папку
         if [[ "$LINK_TARGET" == *"$CUSTOM_DIR"* ]]; then
             rm -f "$TARGET"
-            echo "✔ Hook $HOOK безопасно отключён"
+            echo "✅ Hook $HOOK безопасно отключён"
         else
             echo "⚠️ Hook $HOOK не удалён: это не наш симлинк ($LINK_TARGET)"
         fi

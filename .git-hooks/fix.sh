@@ -24,10 +24,10 @@ fi
 
 # выбираем, как запускать eslint/prettier (bun если есть, иначе npx)
 if [ -x "$BUN_PATH" ]; then
-  echo "✔ Bun найден по пути: $BUN_PATH — используем Bun"
+  echo "✅ Bun найден по пути: $BUN_PATH — используем Bun"
   ESLINT_CMD=("$BUN_PATH" "eslint")
 elif command -v npx >/dev/null 2>&1; then
-  echo "ℹ Bun не найден — используем npx"
+  echo "ℹ️ Bun не найден — используем npx"
   ESLINT_CMD=(npx eslint)
 else
   echo "❌ Не найден bun ($BUN_PATH) и не найден npx. Установите bun или node/npm (npx)."

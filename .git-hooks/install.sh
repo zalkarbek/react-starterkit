@@ -32,7 +32,7 @@ for HOOK in "${HOOKS[@]}"; do
     if [ -L "$TARGET" ]; then
         LINK_TARGET=$(readlink "$TARGET")
         if [[ "$LINK_TARGET" == *"$CUSTOM_DIR"* ]]; then
-            echo "ℹ Старый хук $HOOK найден и перезаписывается."
+            echo "ℹ️ Старый хук $HOOK найден и перезаписывается."
             rm -f "$TARGET"
         else
             echo "⚠️ Хук $HOOK не перезаписан, это не наш симлинк ($LINK_TARGET)"
@@ -44,7 +44,7 @@ for HOOK in "${HOOKS[@]}"; do
     fi
 
     ln -s "../../$CUSTOM_DIR/$HOOK" "$TARGET"
-    echo "✔ Hook $HOOK активирован"
+    echo "✅ Hook $HOOK активирован"
 done
 
 echo "🎉 Git hooks успешно включены!"
