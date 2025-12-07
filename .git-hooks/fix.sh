@@ -9,7 +9,7 @@ FILES=()
 while IFS= read -r -d '' file; do
   # фильтруем по расширениям
   case "$file" in
-    *.ts|*.tsx|*.js|*.jsx|*.css|*.scss|*.md)
+    *.ts|*.tsx|*.js|*.jsx)
       FILES+=("$file")
       ;;
     *)
@@ -26,11 +26,9 @@ fi
 if [ -x "$BUN_PATH" ]; then
   echo "✔ Bun найден по пути: $BUN_PATH — используем Bun"
   ESLINT_CMD=("$BUN_PATH" "eslint")
-  PRETTIER_CMD=("$BUN_PATH" "prettier")
 elif command -v npx >/dev/null 2>&1; then
   echo "ℹ Bun не найден — используем npx"
   ESLINT_CMD=(npx eslint)
-  PRETTIER_CMD=(npx prettier)
 else
   echo "❌ Не найден bun ($BUN_PATH) и не найден npx. Установите bun или node/npm (npx)."
   exit 1
@@ -42,14 +40,7 @@ printf ' - %s\n' "${FILES[@]}"
 # ESLint --fix
 echo "🔎 Запускаю: ${ESLINT_CMD[*]} --fix ..."
 if ! "${ESLINT_CMD[@]}" --fix "${FILES[@]}"; then
-  echo "⚠ ESLint завершился с ошибкой. Прервано."
-  exit 1
-fi
-
-# Prettier --write
-echo "🎨 Запускаю: ${PRETTIER_CMD[*]} --write ..."
-if ! "${PRETTIER_CMD[@]}" --write "${FILES[@]}"; then
-  echo "⚠ Prettier завершился с ошибкой. Прервано."
+  echo "⚠️ ESLint завершился с ошибкой. Прервано."
   exit 1
 fi
 

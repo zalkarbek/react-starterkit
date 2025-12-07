@@ -6,11 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,css,scss,md}'",
-    "preview": "vite preview",
-
     "git-hooks:on": "bash .git-hooks/install.sh",
     "git-hooks:off": "bash .git-hooks/uninstall.sh"
   },
@@ -20,6 +18,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@tsconfig/bases": "^1.0.15",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
@@ -27,14 +26,15 @@
     "@typescript-eslint/parser": "^8.48.1",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
-    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
+    "eslint-plugin-testing-library": "^7.13.5",
     "globals": "^16.5.0",
-    "prettier": "^3.7.4",
+    "jiti": "^2.6.1",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.46.4",
+    "typescript-eslint": "^8.48.1",
     "vite": "^7.2.4"
   }
 }

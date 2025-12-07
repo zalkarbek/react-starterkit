@@ -35,11 +35,11 @@ for HOOK in "${HOOKS[@]}"; do
             echo "ℹ Старый хук $HOOK найден и перезаписывается."
             rm -f "$TARGET"
         else
-            echo "⚠ Хук $HOOK не перезаписан, это не наш симлинк ($LINK_TARGET)"
+            echo "⚠️ Хук $HOOK не перезаписан, это не наш симлинк ($LINK_TARGET)"
             continue
         fi
     elif [ -f "$TARGET" ]; then
-        echo "⚠ Хук $HOOK не является симлинком, оставляем файл без изменений."
+        echo "⚠️ Хук $HOOK не является симлинком, оставляем файл без изменений."
         continue
     fi
 

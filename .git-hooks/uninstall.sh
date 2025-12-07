@@ -18,12 +18,12 @@ for HOOK in "${HOOKS[@]}"; do
             rm -f "$TARGET"
             echo "✔ Hook $HOOK безопасно отключён"
         else
-            echo "⚠ Hook $HOOK не удалён: это не наш симлинк ($LINK_TARGET)"
+            echo "⚠️ Hook $HOOK не удалён: это не наш симлинк ($LINK_TARGET)"
         fi
     elif [ -f "$TARGET" ]; then
-        echo "⚠ Hook $HOOK не является симлинком, оставляем его в покое"
+        echo "⚠️ Hook $HOOK не является симлинком, оставляем его в покое"
     else
-        echo "ℹ Hook $HOOK не найден"
+        echo "ℹ️ Hook $HOOK не найден"
     fi
 done
 
